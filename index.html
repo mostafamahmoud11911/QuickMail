@@ -6,7 +6,9 @@
     <title>Quick Mail</title>
     <link href="css/output.css" rel="stylesheet" />
   </head>
-  <body class="bg-indigo-100 min-h-screen flex items-center justify-center">
+  <body
+    class="bg-indigo-100 min-h-screen flex flex-col items-center justify-center"
+  >
     <div
       class="shadow-lg rounded-xl flex flex-col gap-4 p-6 m-4 bg-white/80 backdrop-blur-sm w-full max-w-lg border border-gray-200"
     >
@@ -125,11 +127,25 @@
 
         <button
           id="copy"
-          class="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-5 py-3 rounded-lg shadow transition"
+          class="bg-emerald-500 hidden hover:bg-emerald-600 text-white font-semibold px-5 py-3 rounded-lg shadow transition"
         >
           Copy to clipboard
         </button>
       </div>
+    </div>
+
+    <div
+      id="outputContainer"
+      style="display: none"
+      class="w-full max-w-lg shadow-lg rounded-xl gap-4 m-4 bg-white/80 backdrop-blur-sm border border-gray-200"
+    >
+      <textarea
+        id="outputText"
+        rows="8"
+        class="border w-full outline-none p-3 rounded-lg border-gray-200 focus:ring-2 focus:ring-indigo-300 transition bg-gray-50"
+        readonly
+        disabled
+      ></textarea>
     </div>
 
     <script src="js/mine.js"></script>
