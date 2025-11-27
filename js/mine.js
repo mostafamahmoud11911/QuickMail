@@ -12,6 +12,8 @@ const outputText = document.getElementById("outputText");
 const generate = document.getElementById("generate");
 const copy = document.getElementById("copy");
 
+
+// Data
 const data = {
   en: {
     greetings: ["Hello", "Hi there", "Dear", "Greetings", "Good day"],
@@ -96,17 +98,22 @@ const data = {
   },
 };
 
+
+// 
 function populateSelect(select, items, defaultText) {
   select.innerHTML = "";
-  const defOpt = document.createElement("option");
-  defOpt.disabled = true;
-  defOpt.selected = true;
-  defOpt.textContent = defaultText;
-  select.appendChild(defOpt);
+  // create option and set it as disabled and selected
+  const option = document.createElement("option");
+  option.disabled = true;
+  option.selected = true;
+  // set the text content
+  option.textContent = defaultText;
+  select.appendChild(option);
+  // loop through the items eg or ar and create options
   items.forEach((item) => {
-    const opt = document.createElement("option");
-    opt.textContent = item;
-    select.appendChild(opt);
+    const option = document.createElement("option");
+    option.textContent = item;
+    select.appendChild(option);
   });
 }
 
@@ -142,9 +149,13 @@ function updateLanguage() {
   outputText.style.textAlign = curr === "ar" ? "right" : "left";
 }
 
+// update language
 lang.addEventListener("change", updateLanguage);
 updateLanguage();
 
+
+
+// generate template when click generate
 generate.addEventListener("click", () => {
   const greetingLine = `${greeting.value} ${title.value} ${nameInput.value}`;
   const openerLine = opener.value ? `\n${opener.value}.\n` : "";
@@ -157,6 +168,8 @@ generate.addEventListener("click", () => {
   outputContainer.style.display = "block";
 });
 
+
+// copy to clipboard
 copy.addEventListener("click", () => {
   if (outputText.value.trim() !== "") {
     navigator.clipboard.writeText(outputText.value);
